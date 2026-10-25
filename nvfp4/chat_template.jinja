@@ -1,0 +1,17 @@
+{%- for message in messages -%}
+{{- '<|im_start|>' + message['role'] + '\n' -}}
+{%- if message['content'] is string -%}
+{{- message['content'] -}}
+{%- else -%}
+{%- for item in message['content'] -%}
+{%- if item['type'] == 'text' -%}{{- item['text'] -}}
+{%- elif item['type'] in ['audio', 'audio_url', 'input_audio'] -%}{{- '<|vision_pad|>' -}}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{{- '<|im_end|>\n' -}}
+{%- endfor -%}
+{%- if add_generation_prompt -%}
+{{- '<|im_start|>assistant\n' -}}
+{%- if enable_thinking is defined and enable_thinking is false -%}{{- '<think>\n\n</think>\n\n' -}}{%- else -%}{{- '<think>\n' -}}{%- endif -%}
+{%- endif -%}

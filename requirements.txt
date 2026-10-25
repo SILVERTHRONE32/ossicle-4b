@@ -1,0 +1,8 @@
+torch>=2.4
+transformers>=5.0
+peft>=0.17
+safetensors
+soundfile
+scipy
+numpy
+pyarrow

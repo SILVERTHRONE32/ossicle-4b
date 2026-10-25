@@ -1,0 +1,9 @@
+checkpoint/
+out/
+runs/
+__pycache__/
+*.pyc
+*.partial
+app_log.jsonl
+scripts/app.py
+scripts/w4.py

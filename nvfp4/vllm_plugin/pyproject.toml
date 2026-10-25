@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ossicle-vllm"
+version = "0.1.0"
+description = "vLLM plugin that registers Ossicle (audio encoder + Qwen3.5 language model) as a native model"
+requires-python = ">=3.10"
+
+[project.entry-points."vllm.general_plugins"]
+ossicle = "ossicle_vllm:register"
+
+[tool.setuptools]
+packages = ["ossicle_vllm"]
